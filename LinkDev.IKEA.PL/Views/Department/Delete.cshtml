@@ -1,0 +1,72 @@
+﻿@model DepartmentDetailsDTO
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h1>Are you Sure to Delete this Department?  </h1>
+<br />
+<br />
+<br />
+
+@* BootStrap Tabs *@
+
+<ul class="nav nav-tabs" id="departmentTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="general-tab" data-bs-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="administration-tab" data-bs-toggle="tab" href="#administration" role="tab" aria-controls="administration" aria-selected="false">Administration</a>
+    </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+    @* General Tab Content *@
+    <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+        <div class="row">
+            <div class="form-group col-6">
+                <label class="col-form-label" asp-for="Code"></label>
+                <input asp-for="Code" class="form-control" readonly />
+            </div>
+
+            <div class="form-group col-6">
+                <label class="col-form-label" asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" readonly />
+            </div>
+
+            <div class="form-group col-12">
+                <label class="col-form-label" asp-for="Description"></label>
+                <input asp-for="Description" class="form-control" readonly />
+            </div>
+
+            <div class="form-group col-12">
+                <label class="col-form-label" asp-for="CreateDate"></label>
+                <input asp-for="CreateDate" class="form-control" readonly />
+            </div>
+        </div>
+    </div>
+
+    @* Administration Tab Content *@
+    <div class="tab-pane fade" id="administration" role="tabpanel" aria-labelledby="administration-tab">
+        <div class="row">
+            <div class="form-group col-6">
+                <label class="col-form-label" asp-for="CreatedAt"></label>
+                <input asp-for="CreatedAt" class="form-control" readonly />
+            </div>
+
+            <div class="form-group col-6">
+                <label class="col-form-label" asp-for="CreatedBy"></label>
+                <input asp-for="CreatedBy" class="form-control" readonly />
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Buttons *@
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post"  class="mt-4">
+
+<input type="submit" value="Delete" class="btn btn-danger"/>
+<a asp-controller="Department" asp-action="Index" class="btn btn-light mt-3"> Cancel</a>
+
+</form>
